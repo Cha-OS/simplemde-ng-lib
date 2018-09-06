@@ -8,5 +8,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class AppComponent {
   title = 'simplemde-ng-lib';
   public simpleMdeOptionsHtml:any = {};
-  public markdownValue = "Hello ***World***!\n# Idea\n*This* is an idea!";
+  public markdownValue = "Hello ***World***!\n# Idea\n*This* is an idea comming from `simplemde-ng-lib`!";
 }

@@ -2,3 +2,5 @@
 // because now in this component we need to add: encapsulation: ViewEncapsulation.None,
 // @import '~simplemde/dist/simplemde.min.css';
 // @import '../../node_modules/simplemde/dist/simplemde.min.css';
+// Import failed to work when built for production,
+// so we migrated it to the `component.ts` file instead

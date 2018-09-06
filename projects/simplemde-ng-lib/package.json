@@ -1,6 +1,6 @@
 {
   "name": "simplemde-ng-lib",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Angular library (compatible with ng-cli 6) wrapper for simplemde : https://github.com/sparksuite/simplemde-markdown-editor",
   "keywords": ["simplemde", "markdown", "angular", "editor", "wysiwyg", "marked"],
   "homepage": "https://github.com/Cha-OS/simplemde-ng-lib",

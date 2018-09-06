@@ -1,5 +1,10 @@
 # SimplemdeNgLib
 
+Main info:
++ [Angular Package Format (APF) v6.0](https://docs.google.com/document/d/1CZC2rcpxffTDfRDs6p1cfbmKNLA6x5O-NtkJglDaBVs/preview#)
++ [stories create library - Library support in Angular CLI 6](https://github.com/angular/angular-cli/wiki/stories-create-library)
+
+
 ***Note***: The code of this project originates from https://github.com/doxiaodong/ng2-simplemde. The reason of creating a separate repo is to build and package a healthy angular library and npm package. Therefore the source structure changed reasonably.
 
 Github: https://github.com/Cha-OS/simplemde-ng-lib
@@ -103,6 +108,34 @@ Additionally, if you do not see the proper error, you might want to integrate th
 ng build simplemde-ng-lib --prod
 ```
 
+## Problem with missing node_modules in the dist folder
+
+***Error***: `Data path "" should NOT have additional properties(assets).`
+
++ https://github.com/angular/angular-cli/issues/11071
++ https://github.com/angular/angular-cli/issues/9994
++ https://stackoverflow.com/questions/41555624/how-to-include-assets-from-node-modules-in-angular-cli-project
+
+We tried to add an `assets` property in the `angular.json` file under the lib project, but none of the solutions is working:
+
+```json
+            "assets": [
+              "node_modules"
+            ],
+```
+
+```json
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "node_modules",
+                "output": "node_modules"
+              }
+            ],
+```
+
+To avoid currently we need to ***manually*** move node_modules to the lib's dist folder.
+
 ## Publishing
 
 ```sh
@@ -112,6 +145,14 @@ ng build simplemde-ng-lib --prod
 cd dist/simplemde-ng-lib/
 # publish
 npm publish
+cd ../..
+# add npm package
+yarn add --dev simplemde-ng-lib
+# build
+ng build --prod
+# run local server for testing
+cd dist/simplemde-ng-env-for-lib/
+python -m SimpleHTTPServer 8000
 ```
 
 ## Running demo app
